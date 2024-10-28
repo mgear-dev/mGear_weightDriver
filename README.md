@@ -1,4 +1,7 @@
-# weightDriver
+# mGear_weightDriver
+This fork is a variant of the original WeightDriver from Ingo Clemens
+In this variant we have change the node ID and Name to avoid possible incompatibilities if the kernel is changed in the future. So both weight drivers(SHAPES original and mGear variant) can cohexist in the same Maya enviroment.
+
 Node for Autodesk Maya to create posed-based output values for driving relationships.
 
 Even though the tool is Open Source we appreciate if you would consider support for continued development via [Gumroad](https://braverabbit.gumroad.com/l/weightDriverMaya)
