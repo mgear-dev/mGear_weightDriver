@@ -9,7 +9,7 @@
 
 #include <string>
 
-static const std::string kVERSION = "3.6.2";
+static const std::string kVERSION = "3.6.3";
 
 #include <maya/MFnPlugin.h>
 
@@ -27,11 +27,11 @@ static const std::string kVERSION = "3.6.2";
 MStatus initializePlugin(MObject obj)
 {
     MStatus status;
-    MFnPlugin plugin(obj, "Ingo Clemens", kVERSION.c_str(), "Any");
+    MFnPlugin plugin(obj, "Ingo Clemens (mGear Version)", kVERSION.c_str(), "Any");
 
 // VP2.0
 #if MAYA_API_VERSION >= 201400
-    status = plugin.registerNode("weightDriver",
+    status = plugin.registerNode("mGear_weightDriver",
                                  weightDriver::id,
                                  &weightDriver::creator,
                                  &weightDriver::initialize,
@@ -44,9 +44,9 @@ MStatus initializePlugin(MObject obj)
                                                                    weightDriver::drawRegistrantId,
                                                                    weightDriverOverride::Creator);
     if (status != MStatus::kSuccess)
-        status.perror("Register DrawOverrideCreator for weightDriver command failed");
+        status.perror("Register DrawOverrideCreator for mGear_weightDriver command failed");
 #else
-    status = plugin.registerNode("weightDriver",
+    status = plugin.registerNode("mGear_weightDriver",
                                  weightDriver::id,
                                  weightDriver::creator,
                                  weightDriver::initialize,
@@ -61,20 +61,20 @@ MStatus initializePlugin(MObject obj)
 MStatus uninitializePlugin(MObject obj)
 {
     MStatus status;
-    MFnPlugin plugin(obj, "Ingo Clemens", kVERSION.c_str(), "Any");
+    MFnPlugin plugin(obj, "Ingo Clemens (mGear Version)", kVERSION.c_str(), "Any");
 
 // VP2.0
 #if MAYA_API_VERSION >= 201400
     status = MHWRender::MDrawRegistry::deregisterDrawOverrideCreator(weightDriver::drawDbClassification,
                                                                      weightDriver::drawRegistrantId);
     if (status != MStatus::kSuccess)
-        status.perror("Deregister DrawOverrideCreator for weightDriver command failed");
+        status.perror("Deregister DrawOverrideCreator for mGear_weightDriver command failed");
 #endif
 
     status = plugin.deregisterNode(weightDriver::id);
 
     if (status != MStatus::kSuccess)
-        status.perror("Deregister weightDriver command failed");
+        status.perror("Deregister mGear_weightDriver command failed");
 
     return status;
 }

@@ -21,7 +21,7 @@ const float DEGTORAD = (float)(M_PI / 180);
 const float RADTODEG = (float)(180 / M_PI);
 
 
-MTypeId weightDriver::id(0x0011C1C5);
+MTypeId weightDriver::id(0x0011FEF1);
 
 
 // -----------------------------------------------
