@@ -1,14 +1,14 @@
 // ---------------------------------------------------------------------
 //
-//  weightDriver.h
+//  mGearWeightDriver.h
 //
 //  Created by ingo on 9/27/13.
 //  Copyright (c) 2021 Ingo Clemens. All rights reserved.
 //
 // ---------------------------------------------------------------------
 
-#ifndef __SHAPESTools__weightDriver__
-#define __SHAPESTools__weightDriver__
+#ifndef __SHAPESTools__mGearWeightDriver__
+#define __SHAPESTools__mGearWeightDriver__
 
 #include <iostream>
 
@@ -58,11 +58,11 @@
 #include "BRMatrix.h"
 #include <vector>
 
-class weightDriver : public MPxLocatorNode
+class mGearWeightDriver : public MPxLocatorNode
 {
 public:
-    weightDriver();
-    virtual ~weightDriver();
+    mGearWeightDriver();
+    virtual ~mGearWeightDriver();
 
     static void* creator();
 
@@ -242,15 +242,15 @@ private:
 // ---------------------------------------------------------------------
 
 #if MAYA_API_VERSION >= 201400
-class weightDriverData : public MUserData
+class mGearWeightDriverData : public MUserData
 {
 public:
 #if MAYA_API_VERSION > 20200300
-    weightDriverData() : MUserData() {}
+    mGearWeightDriverData() : MUserData() {}
 #else
-    weightDriverData() : MUserData(false) {}
+    mGearWeightDriverData() : MUserData(false) {}
 #endif
-    virtual ~weightDriverData() {}
+    virtual ~mGearWeightDriverData() {}
 
     bool activeVal;
     double angleVal;
@@ -330,7 +330,7 @@ private:
 #if MAYA_API_VERSION >= 201650
     static void OnModelEditorChanged(void *clientData);
 
-    weightDriver*  fWeightDriver;
+    mGearWeightDriver*  fmGearWeightDriver;
     MCallbackId fModelEditorChangedCbId;
 #endif
 };
@@ -342,7 +342,7 @@ private:
 // MIT License
 //
 // Copyright (c) 2021 Ingo Clemens, brave rabbit
-// weightDriver is under the terms of the MIT License
+// mGearWeightDriver is under the terms of the MIT License
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the

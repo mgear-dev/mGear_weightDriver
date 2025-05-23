@@ -42,7 +42,7 @@ MStatus initializePlugin(MObject obj)
 
     status = MHWRender::MDrawRegistry::registerDrawOverrideCreator(mGearWeightDriver::drawDbClassification,
                                                                    mGearWeightDriver::drawRegistrantId,
-                                                                   weightDriverOverride::Creator);
+                                                                   mGearWeightDriverOverride::Creator);
     if (status != MStatus::kSuccess)
         status.perror("Register DrawOverrideCreator for mGearWeightDriver command failed");
 #else
