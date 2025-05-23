@@ -2,9 +2,9 @@ set(SOURCE_FILES
 
 	"BRMatrix.cpp"
 	"pluginMain.cpp"
-	"mGear_weightDriver.cpp"
+	"mGearWeightDriver.cpp"
 	"BRMatrix.h"
-	"mGear_weightDriver.h"
+	"mGearWeightDriver.h"
 )
 
 find_package(Maya REQUIRED)

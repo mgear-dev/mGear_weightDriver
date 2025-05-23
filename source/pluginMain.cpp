@@ -13,7 +13,7 @@ static const std::string kVERSION = "3.6.3";
 
 #include <maya/MFnPlugin.h>
 
-#include "mGear_weightDriver.h"
+#include "mGearWeightDriver.h"
 
 // VP2.0
 #if MAYA_API_VERSION >= 201400
@@ -31,28 +31,28 @@ MStatus initializePlugin(MObject obj)
 
 // VP2.0
 #if MAYA_API_VERSION >= 201400
-    status = plugin.registerNode("mGear_weightDriver",
-                                 mGear_weightDriver::id,
-                                 &mGear_weightDriver::creator,
-                                 &mGear_weightDriver::initialize,
+    status = plugin.registerNode("mGearWeightDriver",
+                                 mGearWeightDriver::id,
+                                 &mGearWeightDriver::creator,
+                                 &mGearWeightDriver::initialize,
                                  MPxNode::kLocatorNode,
-                                 &mGear_weightDriver::drawDbClassification);
+                                 &mGearWeightDriver::drawDbClassification);
     if (status != MStatus::kSuccess)
-        status.perror("Register mGear_weightDriver command failed");
+        status.perror("Register mGearWeightDriver command failed");
 
-    status = MHWRender::MDrawRegistry::registerDrawOverrideCreator(mGear_weightDriver::drawDbClassification,
-                                                                   mGear_weightDriver::drawRegistrantId,
+    status = MHWRender::MDrawRegistry::registerDrawOverrideCreator(mGearWeightDriver::drawDbClassification,
+                                                                   mGearWeightDriver::drawRegistrantId,
                                                                    weightDriverOverride::Creator);
     if (status != MStatus::kSuccess)
-        status.perror("Register DrawOverrideCreator for mGear_weightDriver command failed");
+        status.perror("Register DrawOverrideCreator for mGearWeightDriver command failed");
 #else
-    status = plugin.registerNode("mGear_weightDriver",
-                                 mGear_weightDriver::id,
-                                 mGear_weightDriver::creator,
-                                 mGear_weightDriver::initialize,
+    status = plugin.registerNode("mGearWeightDriver",
+                                 mGearWeightDriver::id,
+                                 mGearWeightDriver::creator,
+                                 mGearWeightDriver::initialize,
                                  MPxNode::kLocatorNode);
     if (status != MStatus::kSuccess)
-        status.perror("Register mGear_weightDriver command failed");
+        status.perror("Register mGearWeightDriver command failed");
 #endif
 
     return status;
@@ -65,16 +65,16 @@ MStatus uninitializePlugin(MObject obj)
 
 // VP2.0
 #if MAYA_API_VERSION >= 201400
-    status = MHWRender::MDrawRegistry::deregisterDrawOverrideCreator(mGear_weightDriver::drawDbClassification,
-                                                                     mGear_weightDriver::drawRegistrantId);
+    status = MHWRender::MDrawRegistry::deregisterDrawOverrideCreator(mGearWeightDriver::drawDbClassification,
+                                                                     mGearWeightDriver::drawRegistrantId);
     if (status != MStatus::kSuccess)
-        status.perror("Deregister DrawOverrideCreator for mGear_weightDriver command failed");
+        status.perror("Deregister DrawOverrideCreator for mGearWeightDriver command failed");
 #endif
 
-    status = plugin.deregisterNode(mGear_weightDriver::id);
+    status = plugin.deregisterNode(mGearWeightDriver::id);
 
     if (status != MStatus::kSuccess)
-        status.perror("Deregister mGear_weightDriver command failed");
+        status.perror("Deregister mGearWeightDriver command failed");
 
     return status;
 }
@@ -83,7 +83,7 @@ MStatus uninitializePlugin(MObject obj)
 // MIT License
 //
 // Copyright (c) 2021 Ingo Clemens, brave rabbit
-// mGear_weightDriver is under the terms of the MIT License
+// mGearWeightDriver is under the terms of the MIT License
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the

@@ -1,13 +1,13 @@
 // ---------------------------------------------------------------------
 //
-//  mGear_weightDriver.cpp
+//  mGearWeightDriver.cpp
 //
 //  Created by ingo on 9/27/13.
 //  Copyright (c) 2021 Ingo Clemens. All rights reserved.
 //
 // ---------------------------------------------------------------------
 
-#include "mGear_weightDriver.h"
+#include "mGearWeightDriver.h"
 
 #include "math.h"
 
@@ -21,7 +21,7 @@ const float DEGTORAD = (float)(M_PI / 180);
 const float RADTODEG = (float)(180 / M_PI);
 
 
-MTypeId mGear_weightDriver::id(0x0011FEF1);
+MTypeId mGearWeightDriver::id(0x0011FEF1);
 
 
 // -----------------------------------------------
@@ -29,34 +29,34 @@ MTypeId mGear_weightDriver::id(0x0011FEF1);
 // -----------------------------------------------
 
 // input
-MObject mGear_weightDriver::driverMatrix;
-MObject mGear_weightDriver::readerMatrix;
+MObject mGearWeightDriver::driverMatrix;
+MObject mGearWeightDriver::readerMatrix;
 // controls
-MObject mGear_weightDriver::active;
-MObject mGear_weightDriver::angle;
-MObject mGear_weightDriver::centerAngle;
-MObject mGear_weightDriver::curveRamp;
-MObject mGear_weightDriver::direction;
-MObject mGear_weightDriver::grow;
-MObject mGear_weightDriver::interpolate;
-MObject mGear_weightDriver::invert;
-MObject mGear_weightDriver::translateMax;
-MObject mGear_weightDriver::translateMin;
-MObject mGear_weightDriver::twist;
-MObject mGear_weightDriver::twistAngle;
-MObject mGear_weightDriver::useRotate;
-MObject mGear_weightDriver::useTranslate;
+MObject mGearWeightDriver::active;
+MObject mGearWeightDriver::angle;
+MObject mGearWeightDriver::centerAngle;
+MObject mGearWeightDriver::curveRamp;
+MObject mGearWeightDriver::direction;
+MObject mGearWeightDriver::grow;
+MObject mGearWeightDriver::interpolate;
+MObject mGearWeightDriver::invert;
+MObject mGearWeightDriver::translateMax;
+MObject mGearWeightDriver::translateMin;
+MObject mGearWeightDriver::twist;
+MObject mGearWeightDriver::twistAngle;
+MObject mGearWeightDriver::useRotate;
+MObject mGearWeightDriver::useTranslate;
 // display
-MObject mGear_weightDriver::color;
-MObject mGear_weightDriver::colorR;
-MObject mGear_weightDriver::colorG;
-MObject mGear_weightDriver::colorB;
-MObject mGear_weightDriver::drawCenter;
-MObject mGear_weightDriver::drawCone;
-MObject mGear_weightDriver::drawWeight;
-MObject mGear_weightDriver::size;
+MObject mGearWeightDriver::color;
+MObject mGearWeightDriver::colorR;
+MObject mGearWeightDriver::colorG;
+MObject mGearWeightDriver::colorB;
+MObject mGearWeightDriver::drawCenter;
+MObject mGearWeightDriver::drawCone;
+MObject mGearWeightDriver::drawWeight;
+MObject mGearWeightDriver::size;
 // output
-MObject mGear_weightDriver::outWeight;
+MObject mGearWeightDriver::outWeight;
 
 
 // -----------------------------------------------
@@ -64,70 +64,70 @@ MObject mGear_weightDriver::outWeight;
 // -----------------------------------------------
 
 // input
-MObject mGear_weightDriver::controlNode;
-MObject mGear_weightDriver::driverInput;
-MObject mGear_weightDriver::driverList;
-MObject mGear_weightDriver::input;
-MObject mGear_weightDriver::pose;
-MObject mGear_weightDriver::poseAttributes;
-MObject mGear_weightDriver::poseInput;
-MObject mGear_weightDriver::poseMatrix;
-MObject mGear_weightDriver::poseMode;
-MObject mGear_weightDriver::poseParentMatrix;
-MObject mGear_weightDriver::poseRotateOrder;
-MObject mGear_weightDriver::poses;
-MObject mGear_weightDriver::poseValue;
-MObject mGear_weightDriver::poseValues;
-MObject mGear_weightDriver::restInput;
+MObject mGearWeightDriver::controlNode;
+MObject mGearWeightDriver::driverInput;
+MObject mGearWeightDriver::driverList;
+MObject mGearWeightDriver::input;
+MObject mGearWeightDriver::pose;
+MObject mGearWeightDriver::poseAttributes;
+MObject mGearWeightDriver::poseInput;
+MObject mGearWeightDriver::poseMatrix;
+MObject mGearWeightDriver::poseMode;
+MObject mGearWeightDriver::poseParentMatrix;
+MObject mGearWeightDriver::poseRotateOrder;
+MObject mGearWeightDriver::poses;
+MObject mGearWeightDriver::poseValue;
+MObject mGearWeightDriver::poseValues;
+MObject mGearWeightDriver::restInput;
 // controls
-MObject mGear_weightDriver::allowNegative;
-MObject mGear_weightDriver::bias;
-MObject mGear_weightDriver::distanceType;
-MObject mGear_weightDriver::evaluate;
-MObject mGear_weightDriver::kernel;
-MObject mGear_weightDriver::opposite;
-MObject mGear_weightDriver::rbfMode;
-MObject mGear_weightDriver::twistAxis;
-MObject mGear_weightDriver::type;
-MObject mGear_weightDriver::useInterpolation;
+MObject mGearWeightDriver::allowNegative;
+MObject mGearWeightDriver::bias;
+MObject mGearWeightDriver::distanceType;
+MObject mGearWeightDriver::evaluate;
+MObject mGearWeightDriver::kernel;
+MObject mGearWeightDriver::opposite;
+MObject mGearWeightDriver::rbfMode;
+MObject mGearWeightDriver::twistAxis;
+MObject mGearWeightDriver::type;
+MObject mGearWeightDriver::useInterpolation;
 // display
-MObject mGear_weightDriver::colorDriver;
-MObject mGear_weightDriver::colorDriverR;
-MObject mGear_weightDriver::colorDriverG;
-MObject mGear_weightDriver::colorDriverB;
-MObject mGear_weightDriver::drawDriver;
-MObject mGear_weightDriver::drawIndices;
-MObject mGear_weightDriver::drawOrigin;
-MObject mGear_weightDriver::drawPoses;
-MObject mGear_weightDriver::drawTwist;
-MObject mGear_weightDriver::driverIndex;
-MObject mGear_weightDriver::indexDist;
-MObject mGear_weightDriver::poseDrawTwist;
-MObject mGear_weightDriver::poseDrawVector;
-MObject mGear_weightDriver::poseLength;
-MObject mGear_weightDriver::scale;
+MObject mGearWeightDriver::colorDriver;
+MObject mGearWeightDriver::colorDriverR;
+MObject mGearWeightDriver::colorDriverG;
+MObject mGearWeightDriver::colorDriverB;
+MObject mGearWeightDriver::drawDriver;
+MObject mGearWeightDriver::drawIndices;
+MObject mGearWeightDriver::drawOrigin;
+MObject mGearWeightDriver::drawPoses;
+MObject mGearWeightDriver::drawTwist;
+MObject mGearWeightDriver::driverIndex;
+MObject mGearWeightDriver::indexDist;
+MObject mGearWeightDriver::poseDrawTwist;
+MObject mGearWeightDriver::poseDrawVector;
+MObject mGearWeightDriver::poseLength;
+MObject mGearWeightDriver::scale;
 // output
-MObject mGear_weightDriver::output;
+MObject mGearWeightDriver::output;
 
 // special
-MObject mGear_weightDriver::exposeData;
+MObject mGearWeightDriver::exposeData;
 
 // ---------------------------------------------------------------------
 // creator
 // ---------------------------------------------------------------------
 
-mGear_weightDriver::mGear_weightDriver()
+mGearWeightDriver::mGearWeightDriver()
 {}
 
-mGear_weightDriver::~mGear_weightDriver()
+mGearWeightDriver::~mGearWeightDriver()
 {}
 
-void* mGear_weightDriver::creator()
+void* mGearWeightDriver::creator()
 {
-    return new mGear_weightDriver();
+    return new mGearWeightDriver();
 }
 
-bool mGear_weightDriver::isBounded() const
+bool mGearWeightDriver::isBounded() const
 {
     return false;
 }
@@ -136,7 +136,7 @@ bool mGear_weightDriver::isBounded() const
 // initialize the attributes
 // ---------------------------------------------------------------------
 
-MStatus mGear_weightDriver::initialize()
+MStatus mGearWeightDriver::initialize()
 {
     //
     // MFnEnumAttribute
@@ -590,74 +590,74 @@ MStatus mGear_weightDriver::initialize()
     // affects
     // -----------------------------------------------------------------
 
-    attributeAffects(mGear_weightDriver::active, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::allowNegative, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::angle, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::bias, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::centerAngle, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::curveRamp, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::direction, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::distanceType, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::driverIndex, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::driverInput, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::driverMatrix, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::evaluate, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::grow, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::input, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::interpolate, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::invert, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::kernel, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::opposite, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::poseInput, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::poseMatrix, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::poseMode, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::poseParentMatrix, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::poseValue, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::scale, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::rbfMode, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::readerMatrix, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::restInput, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::translateMax, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::translateMin, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::twist, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::twistAngle, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::twistAxis, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::type, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::useInterpolation, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::useRotate, mGear_weightDriver::output);
-    attributeAffects(mGear_weightDriver::useTranslate, mGear_weightDriver::output);
+    attributeAffects(mGearWeightDriver::active, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::allowNegative, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::angle, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::bias, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::centerAngle, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::curveRamp, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::direction, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::distanceType, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::driverIndex, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::driverInput, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::driverMatrix, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::evaluate, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::grow, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::input, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::interpolate, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::invert, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::kernel, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::opposite, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::poseInput, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::poseMatrix, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::poseMode, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::poseParentMatrix, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::poseValue, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::scale, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::rbfMode, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::readerMatrix, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::restInput, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::translateMax, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::translateMin, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::twist, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::twistAngle, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::twistAxis, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::type, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::useInterpolation, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::useRotate, mGearWeightDriver::output);
+    attributeAffects(mGearWeightDriver::useTranslate, mGearWeightDriver::output);
 
     // -----------------------------------------------------------------
     // affects also the legacy outWeight plug
     // (to not break compatibility)
     // -----------------------------------------------------------------
-    attributeAffects(mGear_weightDriver::active, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::angle, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::centerAngle, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::curveRamp, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::direction, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::driverMatrix, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::interpolate, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::invert, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::grow, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::readerMatrix, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::translateMax, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::translateMin, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::twist, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::twistAngle, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::type, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::useRotate, mGear_weightDriver::outWeight);
-    attributeAffects(mGear_weightDriver::useTranslate, mGear_weightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::active, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::angle, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::centerAngle, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::curveRamp, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::direction, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::driverMatrix, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::interpolate, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::invert, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::grow, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::readerMatrix, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::translateMax, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::translateMin, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::twist, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::twistAngle, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::type, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::useRotate, mGearWeightDriver::outWeight);
+    attributeAffects(mGearWeightDriver::useTranslate, mGearWeightDriver::outWeight);
 
     return MStatus::kSuccess;
 }
 
 
-void mGear_weightDriver::postConstructor()
+void mGearWeightDriver::postConstructor()
 {
     MObject thisNode = this->thisMObject();
     MFnDependencyNode nodeFn(thisNode);
-    nodeFn.setName("mGear_weightDriverShape#");
+    nodeFn.setName("mGearWeightDriverShape#");
 
     // initialize the curve ramp
     postConstructor_init_curveRamp(thisNode, curveRamp, 0, 0.0f, 0.0f, 3);
@@ -667,22 +667,22 @@ void mGear_weightDriver::postConstructor()
     // hide the default attributes
     // -----------------------------------------------------------------
 
-    MPlug attrPlug(thisNode, mGear_weightDriver::localPositionX);
+    MPlug attrPlug(thisNode, mGearWeightDriver::localPositionX);
     attrPlug.setChannelBox(false);
-    attrPlug.setAttribute(mGear_weightDriver::localPositionY);
+    attrPlug.setAttribute(mGearWeightDriver::localPositionY);
     attrPlug.setChannelBox(false);
-    attrPlug.setAttribute(mGear_weightDriver::localPositionZ);
+    attrPlug.setAttribute(mGearWeightDriver::localPositionZ);
     attrPlug.setChannelBox(false);
-    attrPlug.setAttribute(mGear_weightDriver::localScaleX);
+    attrPlug.setAttribute(mGearWeightDriver::localScaleX);
     attrPlug.setChannelBox(false);
-    attrPlug.setAttribute(mGear_weightDriver::localScaleY);
+    attrPlug.setAttribute(mGearWeightDriver::localScaleY);
     attrPlug.setChannelBox(false);
-    attrPlug.setAttribute(mGear_weightDriver::localScaleZ);
+    attrPlug.setAttribute(mGearWeightDriver::localScaleZ);
     attrPlug.setChannelBox(false);
 }
 
 
-MStatus mGear_weightDriver::postConstructor_init_curveRamp(MObject &nodeObj,
+MStatus mGearWeightDriver::postConstructor_init_curveRamp(MObject &nodeObj,
                                                      MObject &rampObj,
                                                      int index,
                                                      float position,
@@ -712,7 +712,7 @@ MStatus mGear_weightDriver::postConstructor_init_curveRamp(MObject &nodeObj,
 // compute function
 // ---------------------------------------------------------------------
 
-MStatus mGear_weightDriver::compute(const MPlug &plug, MDataBlock &data)
+MStatus mGearWeightDriver::compute(const MPlug &plug, MDataBlock &data)
 {
     MStatus status = MStatus::kSuccess;
 
@@ -724,32 +724,32 @@ MStatus mGear_weightDriver::compute(const MPlug &plug, MDataBlock &data)
     // get the attributes
     // -----------------------------------------------------------------
 
-    MPlug activePlug(thisNode, mGear_weightDriver::active);
-    MPlug allowNegativePlug(thisNode, mGear_weightDriver::allowNegative);
-    MPlug anglePlug(thisNode, mGear_weightDriver::angle);
-    MPlug biasPlug(thisNode, mGear_weightDriver::bias);
-    MPlug centerAnglePlug(thisNode, mGear_weightDriver::centerAngle);
-    MPlug dirPlug(thisNode, mGear_weightDriver::direction);
-    MPlug distanceTypePlug(thisNode, mGear_weightDriver::distanceType);
-    MPlug driverIndexPlug(thisNode, mGear_weightDriver::driverIndex);
-    MPlug evaluatePlug(thisNode, mGear_weightDriver::evaluate);
-    MPlug exposeDataPlug(thisNode, mGear_weightDriver::exposeData);
-    MPlug interpolatePlug(thisNode, mGear_weightDriver::interpolate);
-    MPlug invPlug(thisNode, mGear_weightDriver::invert);
-    MPlug useMaxPlug(thisNode, mGear_weightDriver::grow);
-    MPlug kernelPlug(thisNode, mGear_weightDriver::kernel);
-    MPlug oppositePlug(thisNode, mGear_weightDriver::opposite);
-    MPlug rbfModePlug(thisNode, mGear_weightDriver::rbfMode);
-    MPlug scalePlug(thisNode, mGear_weightDriver::scale);
-    MPlug translateMaxPlug(thisNode, mGear_weightDriver::translateMax);
-    MPlug translateMinPlug(thisNode, mGear_weightDriver::translateMin);
-    MPlug twistPlug(thisNode, mGear_weightDriver::twist);
-    MPlug twistAnglePlug(thisNode, mGear_weightDriver::twistAngle);
-    MPlug twistAxisPlug(thisNode, mGear_weightDriver::twistAxis);
-    MPlug typePlug(thisNode, mGear_weightDriver::type);
-    MPlug useInterpolationPlug(thisNode, mGear_weightDriver::useInterpolation);
-    MPlug useRotatePlug(thisNode, mGear_weightDriver::useRotate);
-    MPlug useTranslatePlug(thisNode, mGear_weightDriver::useTranslate);
+    MPlug activePlug(thisNode, mGearWeightDriver::active);
+    MPlug allowNegativePlug(thisNode, mGearWeightDriver::allowNegative);
+    MPlug anglePlug(thisNode, mGearWeightDriver::angle);
+    MPlug biasPlug(thisNode, mGearWeightDriver::bias);
+    MPlug centerAnglePlug(thisNode, mGearWeightDriver::centerAngle);
+    MPlug dirPlug(thisNode, mGearWeightDriver::direction);
+    MPlug distanceTypePlug(thisNode, mGearWeightDriver::distanceType);
+    MPlug driverIndexPlug(thisNode, mGearWeightDriver::driverIndex);
+    MPlug evaluatePlug(thisNode, mGearWeightDriver::evaluate);
+    MPlug exposeDataPlug(thisNode, mGearWeightDriver::exposeData);
+    MPlug interpolatePlug(thisNode, mGearWeightDriver::interpolate);
+    MPlug invPlug(thisNode, mGearWeightDriver::invert);
+    MPlug useMaxPlug(thisNode, mGearWeightDriver::grow);
+    MPlug kernelPlug(thisNode, mGearWeightDriver::kernel);
+    MPlug oppositePlug(thisNode, mGearWeightDriver::opposite);
+    MPlug rbfModePlug(thisNode, mGearWeightDriver::rbfMode);
+    MPlug scalePlug(thisNode, mGearWeightDriver::scale);
+    MPlug translateMaxPlug(thisNode, mGearWeightDriver::translateMax);
+    MPlug translateMinPlug(thisNode, mGearWeightDriver::translateMin);
+    MPlug twistPlug(thisNode, mGearWeightDriver::twist);
+    MPlug twistAnglePlug(thisNode, mGearWeightDriver::twistAngle);
+    MPlug twistAxisPlug(thisNode, mGearWeightDriver::twistAxis);
+    MPlug typePlug(thisNode, mGearWeightDriver::type);
+    MPlug useInterpolationPlug(thisNode, mGearWeightDriver::useInterpolation);
+    MPlug useRotatePlug(thisNode, mGearWeightDriver::useRotate);
+    MPlug useTranslatePlug(thisNode, mGearWeightDriver::useTranslate);
 
     bool activeVal = activePlug.asBool();
     bool allowNegativeVal = allowNegativePlug.asBool();
@@ -967,7 +967,7 @@ MStatus mGear_weightDriver::compute(const MPlug &plug, MDataBlock &data)
             // for switching the display of the locator.
             // ---------------------------------------------------------
 
-            MPlug inputPlug(thisNode, mGear_weightDriver::input);
+            MPlug inputPlug(thisNode, mGearWeightDriver::input);
             MIntArray inputIds;
             inputPlug.getExistingArrayAttributeIndices(inputIds, &status);
             CHECK_MSTATUS_AND_RETURN_IT(status);
@@ -1008,7 +1008,7 @@ MStatus mGear_weightDriver::compute(const MPlug &plug, MDataBlock &data)
             else
             {
                 // get the driver indices
-                MPlug driverPlug(thisNode, mGear_weightDriver::driverList);
+                MPlug driverPlug(thisNode, mGearWeightDriver::driverList);
                 MIntArray driverIds;
                 driverPlug.getExistingArrayAttributeIndices(driverIds, &status);
                 CHECK_MSTATUS_AND_RETURN_IT(status);
@@ -1207,7 +1207,7 @@ MStatus mGear_weightDriver::compute(const MPlug &plug, MDataBlock &data)
 // Return Value:
 //      MStatus
 //
-MStatus mGear_weightDriver::getPoseVectors(MDataBlock &data,
+MStatus mGearWeightDriver::getPoseVectors(MDataBlock &data,
                                      std::vector<double> &driver,
                                      unsigned &poseCount,
                                      BRMatrix &poseData,
@@ -1249,7 +1249,7 @@ MStatus mGear_weightDriver::getPoseVectors(MDataBlock &data,
     // This plug is necessary to get the connected node for the parent
     // matrix and dag type since the MDataHandle cannot be used for
     // this.
-    MPlug driverListPlug(thisNode, mGear_weightDriver::driverList);
+    MPlug driverListPlug(thisNode, mGearWeightDriver::driverList);
 
     // -----------------------------------------------------------------
     // process for each driver
@@ -1538,7 +1538,7 @@ MStatus mGear_weightDriver::getPoseVectors(MDataBlock &data,
 // Return Value:
 //      MStatus
 //
-MStatus mGear_weightDriver::getPoseData(MDataBlock &data,
+MStatus mGearWeightDriver::getPoseData(MDataBlock &data,
                                   std::vector<double> &driver,
                                   unsigned &poseCount,
                                   unsigned &solveCount,
@@ -1556,7 +1556,7 @@ MStatus mGear_weightDriver::getPoseData(MDataBlock &data,
     // get the number of outputs
     // -----------------------------------------------------------------
 
-    MPlug outputPlug(thisNode, mGear_weightDriver::output);
+    MPlug outputPlug(thisNode, mGearWeightDriver::output);
     MIntArray outputIds;
     outputPlug.getExistingArrayAttributeIndices(outputIds, &status);
     CHECK_MSTATUS_AND_RETURN_IT(status);
@@ -1566,9 +1566,9 @@ MStatus mGear_weightDriver::getPoseData(MDataBlock &data,
     // get the attributes
     // -----------------------------------------------------------------
 
-    MPlug inputPlug(thisNode, mGear_weightDriver::input);
-    MPlug restInputPlug(thisNode, mGear_weightDriver::restInput);
-    MPlug posesPlug(thisNode, mGear_weightDriver::poses);
+    MPlug inputPlug(thisNode, mGearWeightDriver::input);
+    MPlug restInputPlug(thisNode, mGearWeightDriver::restInput);
+    MPlug posesPlug(thisNode, mGearWeightDriver::poses);
 
     // -----------------------------------------------------------------
     // get the data handles
@@ -1620,7 +1620,7 @@ MStatus mGear_weightDriver::getPoseData(MDataBlock &data,
         poseCount ++;
     }
     // Problem: *)
-    // When loading a scene with the mGear_weightDriver node the index count
+    // When loading a scene with the mGearWeightDriver node the index count
     // of the poses plug (compound array attribute) matches the number
     // of poses, whereas once the scene gets evaluated the plug array
     // contains an additional empty (next available) index.
@@ -1785,7 +1785,7 @@ MStatus mGear_weightDriver::getPoseData(MDataBlock &data,
 // Return Value:
 //      double          The twist angle.
 //
-double mGear_weightDriver::getTwistAngle(MQuaternion q, unsigned int axis)
+double mGearWeightDriver::getTwistAngle(MQuaternion q, unsigned int axis)
 {
     double axisComponent = q.x;
     if (axis == 1)
@@ -1810,7 +1810,7 @@ double mGear_weightDriver::getTwistAngle(MQuaternion q, unsigned int axis)
 // Return Value:
 //      BRMatrix        The twist angle.
 //
-BRMatrix mGear_weightDriver::getDistances(BRMatrix poseMat, double &meanDist, int distType)
+BRMatrix mGearWeightDriver::getDistances(BRMatrix poseMat, double &meanDist, int distType)
 {
     unsigned count = poseMat.getRowSize();
 
@@ -1851,7 +1851,7 @@ BRMatrix mGear_weightDriver::getDistances(BRMatrix poseMat, double &meanDist, in
 // Return Value:
 //      double          The distance value.
 //
-double mGear_weightDriver::getPoseDelta(std::vector<double> vec1, std::vector<double> vec2, int distType)
+double mGearWeightDriver::getPoseDelta(std::vector<double> vec1, std::vector<double> vec2, int distType)
 {
     double dist = 0.0;
     if (distType == 0)
@@ -1878,7 +1878,7 @@ double mGear_weightDriver::getPoseDelta(std::vector<double> vec1, std::vector<do
 // Return Value:
 //      double          The linear distance.
 //
-double mGear_weightDriver::getRadius(std::vector<double> vec1, std::vector<double> vec2)
+double mGearWeightDriver::getRadius(std::vector<double> vec1, std::vector<double> vec2)
 {
     size_t count = vec1.size();
 
@@ -1900,7 +1900,7 @@ double mGear_weightDriver::getRadius(std::vector<double> vec1, std::vector<doubl
 // Return Value:
 //      double          The angle value.
 //
-double mGear_weightDriver::getAngle(std::vector<double> vec1, std::vector<double> vec2)
+double mGearWeightDriver::getAngle(std::vector<double> vec1, std::vector<double> vec2)
 {
     MVector v1(vec1[0], vec1[1], vec1[2]);
     MVector v2(vec2[0], vec2[1], vec2[2]);
@@ -1920,7 +1920,7 @@ double mGear_weightDriver::getAngle(std::vector<double> vec1, std::vector<double
 // Return Value:
 //      None
 //
-void mGear_weightDriver::getActivations(BRMatrix &mat, double width, short kernelType)
+void mGearWeightDriver::getActivations(BRMatrix &mat, double width, short kernelType)
 {
     unsigned count = mat.getRowSize();
 
@@ -1946,7 +1946,7 @@ void mGear_weightDriver::getActivations(BRMatrix &mat, double width, short kerne
 // Return Value:
 //      double          The new interpolated value.
 //
-double mGear_weightDriver::interpolateRbf(double value, double width, short kernelType)
+double mGearWeightDriver::interpolateRbf(double value, double width, short kernelType)
 {
     double result = 0.0;
 
@@ -1991,7 +1991,7 @@ double mGear_weightDriver::interpolateRbf(double value, double width, short kern
 // Return Value:
 //      None
 //
-void mGear_weightDriver::getPoseWeights(MDoubleArray &out,
+void mGearWeightDriver::getPoseWeights(MDoubleArray &out,
                                   BRMatrix poses,
                                   std::vector<double> driver,
                                   MIntArray poseModes,
@@ -2046,7 +2046,7 @@ void mGear_weightDriver::getPoseWeights(MDoubleArray &out,
 // Return Value:
 //      None
 //
-void mGear_weightDriver::setOutputValues(MDoubleArray weightsArray, MDataBlock data, bool inactive)
+void mGearWeightDriver::setOutputValues(MDoubleArray weightsArray, MDataBlock data, bool inactive)
 {
     MStatus status = MStatus::kSuccess;
     
@@ -2072,7 +2072,7 @@ void mGear_weightDriver::setOutputValues(MDoubleArray weightsArray, MDataBlock d
         }
         else
         {
-            MPlug outputPlug(thisNode, mGear_weightDriver::output);
+            MPlug outputPlug(thisNode, mGearWeightDriver::output);
             outputPlug.getExistingArrayAttributeIndices(ids, &status);
             if (status != MStatus::kSuccess)
                 return;
@@ -2118,7 +2118,7 @@ void mGear_weightDriver::setOutputValues(MDoubleArray weightsArray, MDataBlock d
 // Return Value:
 //      double          The new value with bias.
 //
-double mGear_weightDriver::rbfWeightBias(double value, double biasValue)
+double mGearWeightDriver::rbfWeightBias(double value, double biasValue)
 {
     if (biasValue >= 0.0)
     {
@@ -2150,7 +2150,7 @@ double mGear_weightDriver::rbfWeightBias(double value, double biasValue)
 // Return Value:
 //      double          The new interpolated value.
 //
-double mGear_weightDriver::interpolateWeight(double value, int type)
+double mGearWeightDriver::interpolateWeight(double value, int type)
 {
     // slow - inverse quadratic
     if (type == 1)
@@ -2181,7 +2181,7 @@ double mGear_weightDriver::interpolateWeight(double value, int type)
 // Return Value:
 //      double          The blend curve output value.
 //
-double mGear_weightDriver::blendCurveWeight(double value)
+double mGearWeightDriver::blendCurveWeight(double value)
 {
     float curveValue;
     curveAttr.getValueAtPosition((float)value, curveValue);
@@ -2195,7 +2195,7 @@ double mGear_weightDriver::blendCurveWeight(double value)
 // Helper functions to display the various data elements of the RBF
 // calculation process.
 // ---------------------------------------------------------------------
-void mGear_weightDriver::showArray(MDoubleArray array, MString name)
+void mGearWeightDriver::showArray(MDoubleArray array, MString name)
 {
     unsigned int i;
 
@@ -2207,7 +2207,7 @@ void mGear_weightDriver::showArray(MDoubleArray array, MString name)
     MGlobal::displayInfo(s);
 }
 
-void mGear_weightDriver::showVector(MVector vector, MString name)
+void mGearWeightDriver::showVector(MVector vector, MString name)
 {
     unsigned int i;
 
@@ -2219,7 +2219,7 @@ void mGear_weightDriver::showVector(MVector vector, MString name)
     MGlobal::displayInfo(s);
 }
 
-void mGear_weightDriver::showMatrix(MMatrix mat, MString name)
+void mGearWeightDriver::showMatrix(MMatrix mat, MString name)
 {
     unsigned int i, j;
 
@@ -2246,7 +2246,7 @@ void mGear_weightDriver::showMatrix(MMatrix mat, MString name)
 // ---------------------------------------------------------------------
 #if MAYA_API_VERSION < 201900
 
-void mGear_weightDriver::draw(M3dView &view,
+void mGearWeightDriver::draw(M3dView &view,
                         const MDagPath &path,
                         M3dView::DisplayStyle style,
                         M3dView::DisplayStatus status)
@@ -2261,24 +2261,24 @@ void mGear_weightDriver::draw(M3dView &view,
     // get the attributes
     // -----------------------------------------------------------------
 
-    MPlug activePlug(thisNode, mGear_weightDriver::active);
-    MPlug colorRPlug(thisNode, mGear_weightDriver::colorR);
-    MPlug colorGPlug(thisNode, mGear_weightDriver::colorG);
-    MPlug colorBPlug(thisNode, mGear_weightDriver::colorB);
-    MPlug drawCenterPlug(thisNode, mGear_weightDriver::drawCenter);
-    MPlug drawConePlug(thisNode, mGear_weightDriver::drawCone);
-    MPlug drawDriverPlug(thisNode, mGear_weightDriver::drawDriver);
-    MPlug drawIndicesPlug(thisNode, mGear_weightDriver::drawIndices);
-    MPlug drawOriginPlug(thisNode, mGear_weightDriver::drawOrigin);
-    MPlug drawPosesPlug(thisNode, mGear_weightDriver::drawPoses);
-    MPlug drawTwistPlug(thisNode, mGear_weightDriver::drawTwist);
-    MPlug drawWeightPlug(thisNode, mGear_weightDriver::drawWeight);
-    //MPlug driverIndexPlug(thisNode, mGear_weightDriver::driverIndex);
-    MPlug indexDistPlug(thisNode, mGear_weightDriver::indexDist);
-    MPlug outWeightPlug(thisNode, mGear_weightDriver::outWeight);
-    MPlug poseLengthPlug(thisNode, mGear_weightDriver::poseLength);
-    MPlug rbfModePlug(thisNode, mGear_weightDriver::rbfMode);
-    MPlug sizePlug(thisNode, mGear_weightDriver::size);
+    MPlug activePlug(thisNode, mGearWeightDriver::active);
+    MPlug colorRPlug(thisNode, mGearWeightDriver::colorR);
+    MPlug colorGPlug(thisNode, mGearWeightDriver::colorG);
+    MPlug colorBPlug(thisNode, mGearWeightDriver::colorB);
+    MPlug drawCenterPlug(thisNode, mGearWeightDriver::drawCenter);
+    MPlug drawConePlug(thisNode, mGearWeightDriver::drawCone);
+    MPlug drawDriverPlug(thisNode, mGearWeightDriver::drawDriver);
+    MPlug drawIndicesPlug(thisNode, mGearWeightDriver::drawIndices);
+    MPlug drawOriginPlug(thisNode, mGearWeightDriver::drawOrigin);
+    MPlug drawPosesPlug(thisNode, mGearWeightDriver::drawPoses);
+    MPlug drawTwistPlug(thisNode, mGearWeightDriver::drawTwist);
+    MPlug drawWeightPlug(thisNode, mGearWeightDriver::drawWeight);
+    //MPlug driverIndexPlug(thisNode, mGearWeightDriver::driverIndex);
+    MPlug indexDistPlug(thisNode, mGearWeightDriver::indexDist);
+    MPlug outWeightPlug(thisNode, mGearWeightDriver::outWeight);
+    MPlug poseLengthPlug(thisNode, mGearWeightDriver::poseLength);
+    MPlug rbfModePlug(thisNode, mGearWeightDriver::rbfMode);
+    MPlug sizePlug(thisNode, mGearWeightDriver::size);
 
     bool activeVal = activePlug.asBool();
     float colorRVal = (float)colorRPlug.asDouble();
@@ -2341,7 +2341,7 @@ void mGear_weightDriver::draw(M3dView &view,
         // -------------------------------------------------------------
 
         MString driverName;
-        MPlug driverPlug(thisNode, mGear_weightDriver::driverMatrix);
+        MPlug driverPlug(thisNode, mGearWeightDriver::driverMatrix);
         if (driverPlug.isConnected())
         {
             MPlugArray plugConn;
@@ -2729,8 +2729,8 @@ void mGear_weightDriver::draw(M3dView &view,
 // ---------------------------------------------------------------------
 #if MAYA_API_VERSION >= 201400
 
-MString mGear_weightDriver::drawDbClassification("drawdb/geometry/mGear_weightDriver");
-MString mGear_weightDriver::drawRegistrantId("mGear_weightDriverNodePlugin");
+MString mGearWeightDriver::drawDbClassification("drawdb/geometry/mGearWeightDriver");
+MString mGearWeightDriver::drawRegistrantId("mGearWeightDriverNodePlugin");
 
 // VP2.0 API for Maya 2016.5 and later.
 //
@@ -2747,7 +2747,7 @@ MString mGear_weightDriver::drawRegistrantId("mGear_weightDriverNodePlugin");
 // Note that the draw callback in MPxDrawOverride constructor is set to
 // NULL in order to achieve better performance.
 
-mGear_weightDriverOverride::mGear_weightDriverOverride(const MObject &obj)
+mGearWeightDriverOverride::mGearWeightDriverOverride(const MObject &obj)
 : MHWRender::MPxDrawOverride(obj, NULL, true)
 {
     fModelEditorChangedCbId = MEventMessage::addEventCallback("modelEditorChanged",
@@ -2755,13 +2755,13 @@ mGear_weightDriverOverride::mGear_weightDriverOverride(const MObject &obj)
 
     MStatus status;
     MFnDependencyNode node(obj, &status);
-    fmGear_weightDriver = status ? dynamic_cast<mGear_weightDriver*>(node.userNode()) : NULL;
+    fmGearWeightDriver = status ? dynamic_cast<mGearWeightDriver*>(node.userNode()) : NULL;
 }
 
 
-mGear_weightDriverOverride::~mGear_weightDriverOverride()
+mGearWeightDriverOverride::~mGearWeightDriverOverride()
 {
-    fmGear_weightDriver = NULL;
+    fmGearWeightDriver = NULL;
 
     if (fModelEditorChangedCbId != 0)
     {
@@ -2771,17 +2771,17 @@ mGear_weightDriverOverride::~mGear_weightDriverOverride()
 }
 
 
-void mGear_weightDriverOverride::OnModelEditorChanged(void *clientData)
+void mGearWeightDriverOverride::OnModelEditorChanged(void *clientData)
 {
-    mGear_weightDriverOverride *ovr = static_cast<mGear_weightDriverOverride*>(clientData);
-    if (ovr && ovr->fmGear_weightDriver)
+    mGearWeightDriverOverride *ovr = static_cast<mGearWeightDriverOverride*>(clientData);
+    if (ovr && ovr->fmGearWeightDriver)
     {
-        MHWRender::MRenderer::setGeometryDrawDirty(ovr->fmGear_weightDriver->thisMObject());
+        MHWRender::MRenderer::setGeometryDrawDirty(ovr->fmGearWeightDriver->thisMObject());
     }
 }
 
 
-MHWRender::DrawAPI mGear_weightDriverOverride::supportedDrawAPIs() const
+MHWRender::DrawAPI mGearWeightDriverOverride::supportedDrawAPIs() const
 {
     return (MHWRender::kOpenGL | MHWRender::kDirectX11 | MHWRender::kOpenGLCoreProfile);
 }
@@ -2791,26 +2791,26 @@ MHWRender::DrawAPI mGear_weightDriverOverride::supportedDrawAPIs() const
 // VP2.0 API for Maya 2016 and earlier.
 //
 #else
-mGear_weightDriverOverride::mGear_weightDriverOverride(const MObject &obj)
-: MHWRender::MPxDrawOverride(obj, mGear_weightDriverOverride::draw)
+mGearWeightDriverOverride::mGearWeightDriverOverride(const MObject &obj)
+: MHWRender::MPxDrawOverride(obj, mGearWeightDriverOverride::draw)
 {
 }
 
 
-mGear_weightDriverOverride::~mGear_weightDriverOverride()
+mGearWeightDriverOverride::~mGearWeightDriverOverride()
 {
 }
 #endif
 
 
-MBoundingBox mGear_weightDriverOverride::boundingBox(const MDagPath &objPath,
+MBoundingBox mGearWeightDriverOverride::boundingBox(const MDagPath &objPath,
                                                const MDagPath &cameraPath) const
 {
     MStatus status;
     MObject thisNode = objPath.node(&status);
-    MPlug sizePlug(thisNode, mGear_weightDriver::size);
+    MPlug sizePlug(thisNode, mGearWeightDriver::size);
     double sizeMult = sizePlug.asDouble();
-    MPlug typePlug(thisNode, mGear_weightDriver::type);
+    MPlug typePlug(thisNode, mGearWeightDriver::type);
     short typeVal = typePlug.asShort();
 
     int xCorner = 0;
@@ -2827,14 +2827,14 @@ MBoundingBox mGear_weightDriverOverride::boundingBox(const MDagPath &objPath,
 }
 
 
-MUserData* mGear_weightDriverOverride::prepareForDraw(const MDagPath &objPath,
+MUserData* mGearWeightDriverOverride::prepareForDraw(const MDagPath &objPath,
                                                 const MDagPath &cameraPath,
                                                 const MHWRender::MFrameContext &frameContext,
                                                 MUserData *oldData)
 {
-    mGear_weightDriverData* data = dynamic_cast<mGear_weightDriverData*>(oldData);
+    mGearWeightDriverData* data = dynamic_cast<mGearWeightDriverData*>(oldData);
     if (!data)
-        data = new mGear_weightDriverData();
+        data = new mGearWeightDriverData();
 
     // -----------------------------------------------
     // get the attributes
@@ -2843,32 +2843,32 @@ MUserData* mGear_weightDriverOverride::prepareForDraw(const MDagPath &objPath,
     MStatus status;
     MObject thisNode = objPath.node(&status);
 
-    MPlug activePlug(thisNode, mGear_weightDriver::active);
-    MPlug anglePlug(thisNode, mGear_weightDriver::angle);
-    MPlug centerAnglePlug(thisNode, mGear_weightDriver::centerAngle);
-    MPlug colorDriverRPlug(thisNode, mGear_weightDriver::colorDriverR);
-    MPlug colorDriverGPlug(thisNode, mGear_weightDriver::colorDriverG);
-    MPlug colorDriverBPlug(thisNode, mGear_weightDriver::colorDriverB);
-    MPlug colorRPlug(thisNode, mGear_weightDriver::colorR);
-    MPlug colorGPlug(thisNode, mGear_weightDriver::colorG);
-    MPlug colorBPlug(thisNode, mGear_weightDriver::colorB);
-    MPlug dirPlug(thisNode, mGear_weightDriver::direction);
-    MPlug drawCenterPlug(thisNode, mGear_weightDriver::drawCenter);
-    MPlug drawConePlug(thisNode, mGear_weightDriver::drawCone);
-    MPlug drawDriverPlug(thisNode, mGear_weightDriver::drawDriver);
-    MPlug drawIndicesPlug(thisNode, mGear_weightDriver::drawIndices);
-    MPlug drawOriginPlug(thisNode, mGear_weightDriver::drawOrigin);
-    MPlug drawPosesPlug(thisNode, mGear_weightDriver::drawPoses);
-    MPlug drawTwistPlug(thisNode, mGear_weightDriver::drawTwist);
-    MPlug drawWeightPlug(thisNode, mGear_weightDriver::drawWeight);
-    MPlug driverIndexPlug(thisNode, mGear_weightDriver::driverIndex);
-    MPlug indexDistPlug(thisNode, mGear_weightDriver::indexDist);
-    MPlug invertPlug(thisNode, mGear_weightDriver::invert);
-    MPlug poseLengthPlug(thisNode, mGear_weightDriver::poseLength);
-    MPlug rbfModePlug(thisNode, mGear_weightDriver::rbfMode);
-    MPlug sizePlug(thisNode, mGear_weightDriver::size);
-    MPlug typePlug(thisNode, mGear_weightDriver::type);
-    MPlug weightPlug(thisNode, mGear_weightDriver::outWeight);
+    MPlug activePlug(thisNode, mGearWeightDriver::active);
+    MPlug anglePlug(thisNode, mGearWeightDriver::angle);
+    MPlug centerAnglePlug(thisNode, mGearWeightDriver::centerAngle);
+    MPlug colorDriverRPlug(thisNode, mGearWeightDriver::colorDriverR);
+    MPlug colorDriverGPlug(thisNode, mGearWeightDriver::colorDriverG);
+    MPlug colorDriverBPlug(thisNode, mGearWeightDriver::colorDriverB);
+    MPlug colorRPlug(thisNode, mGearWeightDriver::colorR);
+    MPlug colorGPlug(thisNode, mGearWeightDriver::colorG);
+    MPlug colorBPlug(thisNode, mGearWeightDriver::colorB);
+    MPlug dirPlug(thisNode, mGearWeightDriver::direction);
+    MPlug drawCenterPlug(thisNode, mGearWeightDriver::drawCenter);
+    MPlug drawConePlug(thisNode, mGearWeightDriver::drawCone);
+    MPlug drawDriverPlug(thisNode, mGearWeightDriver::drawDriver);
+    MPlug drawIndicesPlug(thisNode, mGearWeightDriver::drawIndices);
+    MPlug drawOriginPlug(thisNode, mGearWeightDriver::drawOrigin);
+    MPlug drawPosesPlug(thisNode, mGearWeightDriver::drawPoses);
+    MPlug drawTwistPlug(thisNode, mGearWeightDriver::drawTwist);
+    MPlug drawWeightPlug(thisNode, mGearWeightDriver::drawWeight);
+    MPlug driverIndexPlug(thisNode, mGearWeightDriver::driverIndex);
+    MPlug indexDistPlug(thisNode, mGearWeightDriver::indexDist);
+    MPlug invertPlug(thisNode, mGearWeightDriver::invert);
+    MPlug poseLengthPlug(thisNode, mGearWeightDriver::poseLength);
+    MPlug rbfModePlug(thisNode, mGearWeightDriver::rbfMode);
+    MPlug sizePlug(thisNode, mGearWeightDriver::size);
+    MPlug typePlug(thisNode, mGearWeightDriver::type);
+    MPlug weightPlug(thisNode, mGearWeightDriver::outWeight);
 
     data->activeVal = activePlug.asBool();
     data->angleVal = anglePlug.asDouble();
@@ -2926,7 +2926,7 @@ MUserData* mGear_weightDriverOverride::prepareForDraw(const MDagPath &objPath,
 }
 
 
-void mGear_weightDriverOverride::addUIDrawables(const MDagPath &objPath,
+void mGearWeightDriverOverride::addUIDrawables(const MDagPath &objPath,
                                           MHWRender::MUIDrawManager &drawManager,
                                           const MHWRender::MFrameContext &frameContext,
                                           const MUserData *data)
@@ -2936,7 +2936,7 @@ void mGear_weightDriverOverride::addUIDrawables(const MDagPath &objPath,
     MObject thisNode = objPath.node(&status);
 
     // Get the user draw data.
-    const mGear_weightDriverData* wdData = dynamic_cast<const mGear_weightDriverData*>(data);
+    const mGearWeightDriverData* wdData = dynamic_cast<const mGearWeightDriverData*>(data);
     if (!wdData)
         return;
 
@@ -2959,7 +2959,7 @@ void mGear_weightDriverOverride::addUIDrawables(const MDagPath &objPath,
         // -------------------------------------------------------------
 
         MString driverName;
-        MPlug driverPlug(thisNode, mGear_weightDriver::driverMatrix);
+        MPlug driverPlug(thisNode, mGearWeightDriver::driverMatrix);
         if (driverPlug.isConnected())
         {
             MPlugArray sourcePlug;
@@ -3127,8 +3127,8 @@ void mGear_weightDriverOverride::addUIDrawables(const MDagPath &objPath,
         // get the pose vectors
         // -------------------------------------------------------------
 
-        MPlug poseDrawVectorPlug(thisNode, mGear_weightDriver::poseDrawVector);
-        MPlug poseDrawTwistPlug(thisNode, mGear_weightDriver::poseDrawTwist);
+        MPlug poseDrawVectorPlug(thisNode, mGearWeightDriver::poseDrawVector);
+        MPlug poseDrawTwistPlug(thisNode, mGearWeightDriver::poseDrawTwist);
         MIntArray poseIds;
         poseDrawVectorPlug.getExistingArrayAttributeIndices(poseIds, &status);
         if (status != MStatus::kSuccess || !poseIds.length())
@@ -3278,7 +3278,7 @@ void mGear_weightDriverOverride::addUIDrawables(const MDagPath &objPath,
 }
 
 #if MAYA_API_VERSION < 202400
-void mGear_weightDriverOverride::draw(const MHWRender::MDrawContext &context, const MUserData *data)
+void mGearWeightDriverOverride::draw(const MHWRender::MDrawContext &context, const MUserData *data)
 {
 }
 #endif
@@ -3289,7 +3289,7 @@ void mGear_weightDriverOverride::draw(const MHWRender::MDrawContext &context, co
 // MIT License
 //
 // Copyright (c) 2021 Ingo Clemens, brave rabbit
-// mGear_weightDriver is under the terms of the MIT License
+// mGearWeightDriver is under the terms of the MIT License
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the

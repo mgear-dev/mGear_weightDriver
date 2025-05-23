@@ -280,14 +280,14 @@ public:
     double weightVal;
 };
 
-class weightDriverOverride : public MHWRender::MPxDrawOverride
+class mGearWeightDriverOverride : public MHWRender::MPxDrawOverride
 {
 public:
     static MHWRender::MPxDrawOverride* Creator(const MObject& obj)
     {
-        return new weightDriverOverride(obj);
+        return new mGearWeightDriverOverride(obj);
     }
-    virtual ~weightDriverOverride();
+    virtual ~mGearWeightDriverOverride();
 
 // -----------------------------------------------
 // VP2.0 API 2016.5
@@ -322,7 +322,7 @@ public:
     MVector viewVector;
 
 private:
-    weightDriverOverride(const MObject& obj);
+    mGearWeightDriverOverride(const MObject& obj);
 
 // -----------------------------------------------
 // VP2.0 API 2016.5
